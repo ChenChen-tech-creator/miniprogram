@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="header">
+    <view class="title">未来收入预测器</view>
+    <view class="subtitle">预测未来5-10年的收入变化趋势</view>
+  </view>
+
+  <view class="card">
+    <view class="form-item">
+      <view class="label">职业类型</view>
+      <picker bindchange="bindJobChange" value="{{jobIndex}}" range="{{jobs}}">
+        <view class="picker">
+          {{jobs[jobIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <view class="label">当前收入 (元/月)</view>
+      <input type="digit" bindinput="inputSalary" value="{{salary}}" placeholder="请输入您的月薪"/>
+    </view>
+
+    <view class="form-item">
+      <view class="label">年增长率: {{growthRate}}%</view>
+      <slider bindchange="sliderChange" min="3" max="15" value="{{growthRate}}" show-value/>
+    </view>
+
+    <view class="form-item">
+      <view class="label">预测年限</view>
+      <view class="year-buttons">
+        <view class="{{years === 5 ? 'year-btn active' : 'year-btn'}}" bindtap="selectYears" data-years="5">5年</view>
+        <view class="{{years === 10 ? 'year-btn active' : 'year-btn'}}" bindtap="selectYears" data-years="10">10年</view>
+        <view class="{{years === 15 ? 'year-btn active' : 'year-btn'}}" bindtap="selectYears" data-years="15">15年</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tips card">
+    <view class="tip-title">小贴士</view>
+    <view class="tip-content">
+      • 本工具仅提供参考，实际收入受多种因素影响
+      • 增长率会随职业发展阶段变化
+      • 建议结合行业实际情况调整参数
+    </view>
+  </view>
+
+  <view class="btn-primary" bindtap="calculateFuture">开始预测</view>
+</view> 
