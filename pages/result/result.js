@@ -19,16 +19,23 @@ function initChart(canvas, width, height, dpr) {
   
   const option = {
     backgroundColor: '#ffffff',
-    color: ['#37A2DA'],
+    color: ['#4a90e2'],
     tooltip: {
       trigger: 'axis',
       formatter: function(params) {
         const dataIndex = params[0].dataIndex;
         const yearData = yearlyData[dataIndex];
         return `${years[dataIndex]}<br/>
-                年收入: ${(yearData.annual / 10000).toFixed(1)}万元<br/>
-                月收入: ${(yearData.monthly / 1000).toFixed(1)}千元`;
-      }
+                 <span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#4a90e2;"></span>年收入: ${(yearData.annual / 10000).toFixed(1)}万元<br/>
+                 <span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#4a90e2;"></span>月收入: ${(yearData.monthly / 1000).toFixed(1)}千元`;
+      },
+      backgroundColor: 'rgba(255,255,255,0.9)',
+      borderColor: '#e8e8e8',
+      borderWidth: 1,
+      textStyle: {
+        color: '#666'
+      },
+      extraCssText: 'box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);'
     },
     grid: {
       left: '3%',
@@ -40,21 +47,80 @@ function initChart(canvas, width, height, dpr) {
     xAxis: {
       type: 'category',
       boundaryGap: false,
-      data: years
+      data: years,
+      axisLine: {
+        lineStyle: {
+          color: '#e8e8e8'
+        }
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {
+        color: '#666'
+      }
     },
     yAxis: {
       type: 'value',
       name: '年收入(万元)',
+      nameTextStyle: {
+        color: '#666'
+      },
+      axisLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
       axisLabel: {
-        formatter: '{value}'
+        formatter: '{value}',
+        color: '#666'
+      },
+      splitLine: {
+        lineStyle: {
+          color: '#f0f0f0'
+        }
       }
     },
     series: [{
       name: '年收入',
       type: 'line',
       smooth: true,
+      symbol: 'circle',
+      symbolSize: 8,
+      itemStyle: {
+        color: '#4a90e2',
+        borderColor: '#fff',
+        borderWidth: 2
+      },
+      lineStyle: {
+        width: 4,
+        shadowColor: 'rgba(74, 144, 226, 0.3)',
+        shadowBlur: 10
+      },
+      areaStyle: {
+        color: {
+          type: 'linear',
+          x: 0,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [{
+            offset: 0,
+            color: 'rgba(74, 144, 226, 0.3)'
+          }, {
+            offset: 1,
+            color: 'rgba(74, 144, 226, 0.05)'
+          }]
+        }
+      },
       data: annualSalary,
       markPoint: {
+        symbol: 'pin',
+        symbolSize: 40,
+        itemStyle: {
+          color: '#4a90e2'
+        },
         data: [
           { type: 'max', name: '最高值' }
         ]

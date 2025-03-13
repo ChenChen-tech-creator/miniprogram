@@ -1,32 +1,38 @@
 .header {
   width: 100%;
   text-align: center;
-  margin-bottom: 40rpx;
+  margin-bottom: 50rpx;
+  padding-top: 20rpx;
 }
 
 .form-item {
-  margin-bottom: 30rpx;
+  margin-bottom: 40rpx;
 }
 
 .label {
   font-size: 28rpx;
-  color: #333;
-  margin-bottom: 15rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  font-weight: 500;
 }
 
 .picker {
-  height: 80rpx;
-  line-height: 80rpx;
-  border: 1px solid #ddd;
-  border-radius: 8rpx;
-  padding: 0 20rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border: 1px solid #e8e8e8;
+  border-radius: 45rpx;
+  padding: 0 30rpx;
+  background: #fff;
+  color: #333;
 }
 
 input {
-  height: 80rpx;
-  border: 1px solid #ddd;
-  border-radius: 8rpx;
-  padding: 0 20rpx;
+  height: 90rpx;
+  border: 1px solid #e8e8e8;
+  border-radius: 45rpx;
+  padding: 0 30rpx;
+  background: #fff;
+  color: #333;
 }
 
 .year-buttons {
@@ -39,27 +45,37 @@ input {
   text-align: center;
   padding: 20rpx 0;
   margin: 0 10rpx;
-  background: #f5f5f5;
-  border-radius: 8rpx;
+  background: #f0f3f8;
+  border-radius: 40rpx;
+  color: #666;
+  font-size: 28rpx;
 }
 
 .year-btn.active {
-  background: #1aad19;
+  background: linear-gradient(135deg, #6ec8ff 0%, #4a90e2 100%);
   color: #fff;
+  box-shadow: 0 4rpx 10rpx rgba(74, 144, 226, 0.3);
 }
 
 .tips {
-  background: #f9f9f9;
+  background: #f0f8ff;
+  border-left: 8rpx solid #4a90e2;
 }
 
 .tip-title {
-  font-size: 28rpx;
-  font-weight: bold;
-  margin-bottom: 15rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+  color: #4a90e2;
 }
 
 .tip-content {
   font-size: 26rpx;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.8;
+}
+
+/* 添加滑块样式 */
+slider {
+  margin: 15rpx 0;
 } 
